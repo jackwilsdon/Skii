@@ -105,5 +105,15 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
         return set.toArray(a);
     }
 
+    public E get(Object o) {
+        for (E element: set) {
+            if (getUniqueIdentifier(element) == o) {
+                return element;
+            }
+        }
+
+        return null;
+    }
+
     protected abstract Object getUniqueIdentifier(E e);
 }

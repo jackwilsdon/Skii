@@ -7,6 +7,16 @@ public class UniqueClassSetWrapper<E> extends UniqueSetWrapper<E> {
         super(s);
     }
 
+    public <T extends E> T cast(Class<T> c) {
+        E value = get(c);
+
+        if (!c.isInstance(value)) {
+            return null;
+        }
+
+        return c.cast(value);
+    }
+
     @Override
     protected Object getUniqueIdentifier(E e) {
         return e.getClass();
