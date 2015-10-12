@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+version = '0.0.1'
+
+task execute(type: JavaExec) {
+    main = 'me.jackwilsdon.skii.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+repositories {
+    mavenCentral()
+}
+
+checkstyle {
+    configFile = new File(projectDir, "checkstyle.xml")
+}
+
+dependencies {
+    compile project(':ecs')
+}

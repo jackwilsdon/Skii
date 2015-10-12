@@ -1,0 +1,5 @@
+include 'ecs'
+
+rootProject.children.each { project ->
+    project.projectDir = new File(settingsDir, "deps/${project.name}")
+}
