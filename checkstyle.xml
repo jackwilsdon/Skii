@@ -20,7 +20,7 @@
             <property name="max" value="120"/>
         </module>
         <module name="MethodLength">
-            <property name="max" value="15"/>
+            <property name="max" value="20"/>
             <property name="countEmpty" value="false"/>
         </module>
         <module name="MissingSwitchDefault"/>
