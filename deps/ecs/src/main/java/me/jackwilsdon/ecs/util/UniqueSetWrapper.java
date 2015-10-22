@@ -51,8 +51,8 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean contains(Object identifier) {
-        return set.contains(identifier);
+    public boolean contains(Object value) {
+        return set.contains(value);
     }
 
     @Override
@@ -76,8 +76,8 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean remove(Object identifier) {
-        return set.remove(identifier);
+    public boolean remove(Object value) {
+        return set.remove(value);
     }
 
     @Override
