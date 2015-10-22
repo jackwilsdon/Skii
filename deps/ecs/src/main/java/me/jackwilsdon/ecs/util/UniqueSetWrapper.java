@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs;
+package me.jackwilsdon.ecs.util;
 
 import java.util.Collection;
 import java.util.Iterator;
