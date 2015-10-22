@@ -106,7 +106,7 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     public E get(Object identifier) {
-        for (E element: set) {
+        for (E element : set) {
             if (getUniqueIdentifier(element) == identifier) {
                 return element;
             }
