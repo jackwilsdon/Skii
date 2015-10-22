@@ -7,13 +7,13 @@ import java.util.Set;
 public abstract class UniqueSetWrapper<E> implements Set<E> {
     Set<E> set;
 
-    public UniqueSetWrapper(Set<E> s) {
-        set = s;
+    public UniqueSetWrapper(Set<E> set) {
+        this.set = set;
     }
 
-    private boolean containsIdentifier(Object o) {
+    private boolean containsIdentifier(Object identifier) {
         for (E element : set) {
-            if (getUniqueIdentifier(element) == o) {
+            if (getUniqueIdentifier(element) == identifier) {
                 return true;
             }
         }
@@ -22,21 +22,21 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean add(E e) {
-        Object identifier = getUniqueIdentifier(e);
+    public boolean add(E element) {
+        Object identifier = getUniqueIdentifier(element);
 
         if (containsIdentifier(identifier)) {
             return false;
         }
 
-        return set.add(e);
+        return set.add(element);
     }
 
     @Override
-    public boolean addAll(Collection<? extends E> c) {
+    public boolean addAll(Collection<? extends E> collection) {
         boolean changed = false;
 
-        for (E element : c) {
+        for (E element : collection) {
             if (add(element)) {
                 changed = true;
             }
@@ -51,13 +51,13 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean contains(Object o) {
-        return set.contains(o);
+    public boolean contains(Object identifier) {
+        return set.contains(identifier);
     }
 
     @Override
-    public boolean containsAll(Collection<?> c) {
-        return set.containsAll(c);
+    public boolean containsAll(Collection<?> collection) {
+        return set.containsAll(collection);
     }
 
     @Override
@@ -76,18 +76,18 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean remove(Object o) {
-        return set.remove(o);
+    public boolean remove(Object identifier) {
+        return set.remove(identifier);
     }
 
     @Override
-    public boolean removeAll(Collection<?> c) {
-        return set.removeAll(c);
+    public boolean removeAll(Collection<?> collection) {
+        return set.removeAll(collection);
     }
 
     @Override
-    public boolean retainAll(Collection<?> c) {
-        return set.retainAll(c);
+    public boolean retainAll(Collection<?> collection) {
+        return set.retainAll(collection);
     }
 
     @Override
@@ -101,13 +101,13 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public <T> T[] toArray(T[] a) {
-        return set.toArray(a);
+    public <T> T[] toArray(T[] array) {
+        return set.toArray(array);
     }
 
-    public E get(Object o) {
+    public E get(Object identifier) {
         for (E element: set) {
-            if (getUniqueIdentifier(element) == o) {
+            if (getUniqueIdentifier(element) == identifier) {
                 return element;
             }
         }
@@ -115,5 +115,5 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
         return null;
     }
 
-    protected abstract Object getUniqueIdentifier(E e);
+    protected abstract Object getUniqueIdentifier(E element);
 }
