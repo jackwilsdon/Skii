@@ -7,7 +7,7 @@ public class UniqueClassSetWrapper<E> extends UniqueSetWrapper<E> {
         super(set);
     }
 
-    public <T extends E> T cast(Class<T> castClass) {
+    public <T extends E> T cast(Class<? extends T> castClass) {
         E value = get(castClass);
 
         if (!castClass.isInstance(value)) {
