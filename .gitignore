@@ -85,3 +85,6 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+
+# Natives
+natives
