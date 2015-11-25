@@ -1,12 +1,11 @@
 apply plugin: 'java'
 apply plugin: 'checkstyle'
+apply plugin: 'application'
 
 version = '0.0.1'
+mainClassName = "me.jackwilsdon.skii.Main";
 
-task execute(type: JavaExec) {
-    main = 'me.jackwilsdon.skii.Main'
-    classpath = sourceSets.main.runtimeClasspath
-}
+project.extensions.lwjglVersion = "3.0.0a"
 
 repositories {
     mavenCentral()
@@ -18,4 +17,9 @@ checkstyle {
 
 dependencies {
     compile project(':ecs')
+
+    compile "org.lwjgl:lwjgl:${lwjglVersion}"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
 }
