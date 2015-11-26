@@ -5,7 +5,7 @@ apply plugin: 'application'
 version = '0.0.1'
 mainClassName = 'me.jackwilsdon.skii.Main';
 
-project.extensions.lwjglVersion = "3.0.0a"
+project.extensions.lwjglVersion = '2.9.3'
 
 repositories {
     mavenCentral()
@@ -18,8 +18,8 @@ checkstyle {
 dependencies {
     compile project(':ecs')
 
-    compile "org.lwjgl:lwjgl:${lwjglVersion}"
-    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
-    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
-    compile "org.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
+    compile "org.lwjgl.lwjgl:lwjgl:${lwjglVersion}"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
 }

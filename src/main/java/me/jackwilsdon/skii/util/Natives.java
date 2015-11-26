@@ -6,7 +6,7 @@ public enum Natives {
     WINDOWS32("windows32", "lwjgl.dll", "OpenAL32.dll"),
 
     LINUX64("linux64"),
-    MACOSX64("macosx64", "liblwjgl.dylib", "libopenal.dylib"),
+    MACOSX64("macosx64", "liblwjgl.dylib", "openal.dylib"),
     WINDOWS64("windows64", "lwjgl64.dll", "OpenAL64.dll");
 
     private String platform;
