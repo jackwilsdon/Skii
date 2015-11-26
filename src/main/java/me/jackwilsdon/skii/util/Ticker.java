@@ -36,10 +36,10 @@ public class Ticker {
     }
 
     public boolean update() {
-        long currentTime = System.currentTimeMillis();
+        long currentTime = System.nanoTime();
 
         if (currentTime >= nextTick) {
-            long targetTimeDelta = 1000L / tickRate;
+            long targetTimeDelta = (long) (Math.pow(1000, 3) / tickRate);
 
             if (lastTick == 0 || nextTick == 0) {
                 lastTick = currentTime - targetTimeDelta;
