@@ -3,7 +3,7 @@ apply plugin: 'checkstyle'
 apply plugin: 'application'
 
 version = '0.0.1'
-mainClassName = "me.jackwilsdon.skii.Main";
+mainClassName = 'me.jackwilsdon.skii.Main';
 
 project.extensions.lwjglVersion = "3.0.0a"
 
@@ -12,7 +12,7 @@ repositories {
 }
 
 checkstyle {
-    configFile = new File(projectDir, "checkstyle.xml")
+    configFile = new File(projectDir, 'checkstyle.xml')
 }
 
 dependencies {
