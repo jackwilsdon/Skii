@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 
 public class NativeLoader {
+    private static NativeLoader INSTANCE = new NativeLoader();
+
     private File nativeDirectory;
 
     public NativeLoader(File nativeDirectory) {
@@ -57,6 +59,10 @@ public class NativeLoader {
         System.setProperty("org.lwjgl.librarypath", platformDirectory.getAbsolutePath());
 
         return true;
+    }
+
+    public static NativeLoader getInstance() {
+        return INSTANCE;
     }
 
     private static boolean is64bit() {
