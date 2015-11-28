@@ -12,13 +12,7 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     private boolean containsIdentifier(Object identifier) {
-        for (E element : set) {
-            if (getUniqueIdentifier(element) == identifier) {
-                return true;
-            }
-        }
-
-        return false;
+        return get(identifier) != null;
     }
 
     @Override
