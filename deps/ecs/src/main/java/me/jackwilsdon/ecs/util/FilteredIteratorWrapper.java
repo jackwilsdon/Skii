@@ -1,6 +1,7 @@
 package me.jackwilsdon.ecs.util;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class FilteredIteratorWrapper<E> implements Iterator<E> {
     private Iterator<E> iterator;
@@ -13,10 +14,10 @@ public class FilteredIteratorWrapper<E> implements Iterator<E> {
         this.iterator = iterator;
         this.filter = filter;
 
-        findNextValid();
+        findNext();
     }
 
-    private void findNextValid() {
+    private void findNext() {
         iteratorHasNext = false;
 
         while (iterator.hasNext()) {
@@ -36,13 +37,12 @@ public class FilteredIteratorWrapper<E> implements Iterator<E> {
 
     @Override
     public E next() {
-        E nextValue = iteratorNext;
-        findNextValid();
-        return nextValue;
-    }
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
 
-    @Override
-    public void remove() {
-        iterator.remove();
+        E nextValue = iteratorNext;
+        findNext();
+        return nextValue;
     }
 }
