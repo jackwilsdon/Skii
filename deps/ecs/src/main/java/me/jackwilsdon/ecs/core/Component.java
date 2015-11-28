@@ -1,3 +1,5 @@
 package me.jackwilsdon.ecs.core;
 
-public interface Component { }
+public interface Component {
+
+}
