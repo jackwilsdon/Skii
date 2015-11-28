@@ -17,12 +17,12 @@ public class FilteredIteratorWrapper<E> implements Iterator<E> {
     }
 
     private void findNextValid() {
-        iteratorHasNext = iterator.hasNext();
+        iteratorHasNext = false;
 
         while (iterator.hasNext()) {
             iteratorNext = iterator.next();
 
-            if (filter == null || filter.apply(iteratorNext)) {
+            if (filter.accept(iteratorNext)) {
                 iteratorHasNext = true;
                 break;
             }
