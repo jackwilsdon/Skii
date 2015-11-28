@@ -16,6 +16,36 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
+    public int size() {
+        return set.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return set.isEmpty();
+    }
+
+    @Override
+    public boolean contains(Object value) {
+        return set.contains(value);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return set.iterator();
+    }
+
+    @Override
+    public Object[] toArray() {
+        return set.toArray();
+    }
+
+    @Override
+    public <T> T[] toArray(T[] array) {
+        return set.toArray(array);
+    }
+
+    @Override
     public boolean add(E element) {
         Object identifier = getUniqueIdentifier(element);
 
@@ -24,6 +54,16 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
         }
 
         return set.add(element);
+    }
+
+    @Override
+    public boolean remove(Object value) {
+        return set.remove(value);
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> collection) {
+        return set.containsAll(collection);
     }
 
     @Override
@@ -40,38 +80,8 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public void clear() {
-        set.clear();
-    }
-
-    @Override
-    public boolean contains(Object value) {
-        return set.contains(value);
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> collection) {
-        return set.containsAll(collection);
-    }
-
-    @Override
-    public int hashCode() {
-        return set.hashCode();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return set.isEmpty();
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return set.iterator();
-    }
-
-    @Override
-    public boolean remove(Object value) {
-        return set.remove(value);
+    public boolean retainAll(Collection<?> collection) {
+        return set.retainAll(collection);
     }
 
     @Override
@@ -80,23 +90,18 @@ public abstract class UniqueSetWrapper<E> implements Set<E> {
     }
 
     @Override
-    public boolean retainAll(Collection<?> collection) {
-        return set.retainAll(collection);
+    public void clear() {
+        set.clear();
     }
 
     @Override
-    public int size() {
-        return set.size();
+    public int hashCode() {
+        return set.hashCode();
     }
 
     @Override
-    public Object[] toArray() {
-        return set.toArray();
-    }
-
-    @Override
-    public <T> T[] toArray(T[] array) {
-        return set.toArray(array);
+    public boolean equals(Object object) {
+        return set.equals(object);
     }
 
     public E get(Object identifier) {
