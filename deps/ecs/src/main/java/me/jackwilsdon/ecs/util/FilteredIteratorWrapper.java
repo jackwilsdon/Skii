@@ -2,14 +2,14 @@ package me.jackwilsdon.ecs.util;
 
 import java.util.Iterator;
 
-public class FilteredIterator<E> implements Iterator<E> {
+public class FilteredIteratorWrapper<E> implements Iterator<E> {
     private Iterator<E> iterator;
     private Filter<E> filter;
 
     private E iteratorNext;
     private boolean iteratorHasNext;
 
-    public FilteredIterator(Iterator<E> iterator, Filter<E> filter) {
+    public FilteredIteratorWrapper(Iterator<E> iterator, Filter<E> filter) {
         this.iterator = iterator;
         this.filter = filter;
 
