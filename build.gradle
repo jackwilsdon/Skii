@@ -23,3 +23,8 @@ dependencies {
     compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
     compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
 }
+
+compileJava {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
