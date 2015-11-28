@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs.util;
+package me.jackwilsdon.ecs.util.filter;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

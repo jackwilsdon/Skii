@@ -1,6 +1,4 @@
-package me.jackwilsdon.ecs.util;
-
-import me.jackwilsdon.ecs.core.Component;
+package me.jackwilsdon.ecs.util.filter;
 
 import java.util.Collections;
 import java.util.HashSet;

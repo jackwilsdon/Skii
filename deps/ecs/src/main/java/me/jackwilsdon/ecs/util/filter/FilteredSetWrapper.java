@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs.util;
+package me.jackwilsdon.ecs.util.filter;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -103,5 +103,12 @@ public class FilteredSetWrapper<E> implements Set<E> {
     @Override
     public void clear() {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        updateFilteredSet();
+
+        return filteredSet.equals(object);
     }
 }
