@@ -36,9 +36,9 @@ public abstract class EntitySubSystem extends SubSystem {
         super.onTick(deltaTime);
 
         for (Entity entity : entities) {
-            processEntity(entity);
+            onEntityTick(entity, deltaTime);
         }
     }
 
-    public abstract void processEntity(Entity entity);
+    public abstract void onEntityTick(Entity entity, float deltaTime);
 }
