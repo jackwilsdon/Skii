@@ -18,4 +18,8 @@ public abstract class SubSystem {
     public void onTick(float deltaTime) {
 
     }
+
+    public void onFrame() {
+
+    }
 }

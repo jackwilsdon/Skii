@@ -40,5 +40,15 @@ public abstract class EntitySubSystem extends SubSystem {
         }
     }
 
+    @Override
+    public void onFrame() {
+        super.onFrame();
+
+        for (Entity entity : entities) {
+            onEntityFrame(entity);
+        }
+    }
+
     public abstract void onEntityTick(Entity entity, float deltaTime);
+    public abstract void onEntityFrame(Entity entity);
 }
