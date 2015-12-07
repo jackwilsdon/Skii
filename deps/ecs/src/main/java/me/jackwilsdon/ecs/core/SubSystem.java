@@ -1,7 +1,18 @@
 package me.jackwilsdon.ecs.core;
 
+import java.util.Comparator;
+
 public abstract class SubSystem {
     private Engine engine;
+    private int priority;
+
+    public SubSystem(int priority) {
+        this.priority = priority;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
 
     public final Engine getEngine() {
         return engine;
