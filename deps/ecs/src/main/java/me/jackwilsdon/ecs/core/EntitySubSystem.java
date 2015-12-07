@@ -9,12 +9,14 @@ public abstract class EntitySubSystem extends SubSystem {
     private Filter<Entity> entityFilter;
     private Set<Entity> entities;
 
-    public EntitySubSystem(Filter<Entity> entityFilter) {
+    public EntitySubSystem(int priority, Filter<Entity> entityFilter) {
+        super(priority);
+
         this.entityFilter = entityFilter;
     }
 
     public EntitySubSystem() {
-        this(new AcceptAllFilter<Entity>());
+        this(0, new AcceptAllFilter<Entity>());
     }
 
     @Override
@@ -49,6 +51,11 @@ public abstract class EntitySubSystem extends SubSystem {
         }
     }
 
-    public abstract void onEntityTick(Entity entity, float deltaTime);
-    public abstract void onEntityFrame(Entity entity);
+    public void onEntityTick(Entity entity, float deltaTime) {
+
+    }
+
+    public void onEntityFrame(Entity entity) {
+
+    }
 }
