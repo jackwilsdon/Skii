@@ -39,7 +39,7 @@ public class FilteredCollection<E> implements Collection<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return collection.iterator();
+        return readOnlyCollection.iterator();
     }
 
     @Override
