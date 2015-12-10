@@ -1,5 +1,7 @@
 package me.jackwilsdon.ecs.util.filter;
 
-public interface Filter<E> {
-    boolean accept(E value);
+import me.jackwilsdon.ecs.util.filter.context.FilterContext;
+
+public interface Filter<E, T extends FilterContext> {
+    boolean accept(E value, T context);
 }

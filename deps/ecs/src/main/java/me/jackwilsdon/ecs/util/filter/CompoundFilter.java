@@ -1,21 +1,23 @@
 package me.jackwilsdon.ecs.util.filter;
 
+import me.jackwilsdon.ecs.util.filter.context.FilterContext;
+
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CompoundFilter<T> implements Filter<T> {
-    private Set<Filter<T>> filters = new HashSet<>();
+public class CompoundFilter<E, T extends FilterContext> implements Filter<E, T> {
+    private Set<Filter<E, T>> filters = new HashSet<>();
 
     @SafeVarargs
-    public CompoundFilter(Filter<T>... filters) {
+    public CompoundFilter(Filter<E, T>... filters) {
         Collections.addAll(this.filters, filters);
     }
 
     @Override
-    public boolean accept(T value) {
-        for (Filter<T> filter : filters) {
-            if (!filter.accept(value)) {
+    public boolean accept(E value, T context) {
+        for (Filter<E, T> filter : filters) {
+            if (!filter.accept(value, context)) {
                 return false;
             }
         }
