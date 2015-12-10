@@ -9,7 +9,8 @@ import java.util.UUID;
 
 public final class Entity {
     private UUID identifier = UUID.randomUUID();
-    private Set<Component> components = new FilteredSet<>(new UniqueClassSetFilter<Component>(), new HashSet<Component>());
+    private Set<Component> components =
+            new FilteredSet<>(new UniqueClassSetFilter<Component>(), new HashSet<Component>());
 
     public UUID getIdentifier() {
         return identifier;
