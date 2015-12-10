@@ -1,71 +1,70 @@
 package me.jackwilsdon.ecs.util;
 
 import me.jackwilsdon.ecs.util.filter.Filter;
-import me.jackwilsdon.ecs.util.filter.context.SetFilterContext;
+import me.jackwilsdon.ecs.util.filter.context.CollectionFilterContext;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.Set;
 
-public class FilteredSet<E> implements Set<E> {
-    private Filter<E, SetFilterContext<E>> filter;
-    private SetFilterContext<E> context;
+public class FilteredCollection<E> implements Collection<E> {
+    private Filter<E, CollectionFilterContext<E>> filter;
+    private CollectionFilterContext<E> context;
 
-    private Set<E> set;
-    private Set<E> readOnlySet;
+    private Collection<E> collection;
+    private Collection<E> readOnlyCollection;
 
-    public FilteredSet(Filter<E, SetFilterContext<E>> filter, Set<E> set) {
+    public FilteredCollection(Filter<E, CollectionFilterContext<E>> filter, Collection<E> collection) {
         this.filter = filter;
-        this.context = new SetFilterContext<>(this);
+        this.context = new CollectionFilterContext<>(this);
 
-        this.set = set;
-        this.readOnlySet = Collections.unmodifiableSet(set);
+        this.collection = collection;
+        this.readOnlyCollection = Collections.unmodifiableCollection(collection);
     }
 
     @Override
     public int size() {
-        return set.size();
+        return collection.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return set.isEmpty();
+        return collection.isEmpty();
     }
 
     @Override
     public boolean contains(Object o) {
-        return set.contains(o);
+        return collection.contains(o);
     }
 
     @Override
     public Iterator<E> iterator() {
-        return set.iterator();
+        return collection.iterator();
     }
 
     @Override
     public Object[] toArray() {
-        return set.toArray();
+        return collection.toArray();
     }
 
     @Override
     public <T> T[] toArray(T[] a) {
-        return set.toArray(a);
+        return collection.toArray(a);
     }
 
     @Override
     public boolean add(E e) {
-        return filter.accept(e, context) && set.add(e);
+        return filter.accept(e, context) && collection.add(e);
     }
 
     @Override
     public boolean remove(Object o) {
-        return set.remove(o);
+        return collection.remove(o);
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return set.containsAll(c);
+        return collection.containsAll(c);
     }
 
     @Override
@@ -81,16 +80,16 @@ public class FilteredSet<E> implements Set<E> {
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return set.retainAll(c);
+        return collection.retainAll(c);
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return set.removeAll(c);
+        return collection.removeAll(c);
     }
 
     @Override
     public void clear() {
-        set.clear();
+        collection.clear();
     }
 }

@@ -1,11 +1,11 @@
 package me.jackwilsdon.ecs.util.filter;
 
-import me.jackwilsdon.ecs.util.filter.context.SetFilterContext;
+import me.jackwilsdon.ecs.util.filter.context.CollectionFilterContext;
 
-public abstract class UniqueSetFilter<E> implements SetFilter<E> {
+public abstract class UniqueCollectionFilter<E> implements CollectionFilter<E> {
 
     @Override
-    public final boolean accept(E value, SetFilterContext<E> context) {
+    public final boolean accept(E value, CollectionFilterContext<E> context) {
         Object identifier = getIdentifier(value);
 
         for (E setValue : context.value) {

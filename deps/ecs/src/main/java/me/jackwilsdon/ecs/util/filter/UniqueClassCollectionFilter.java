@@ -1,6 +1,6 @@
 package me.jackwilsdon.ecs.util.filter;
 
-public class UniqueClassSetFilter<E> extends UniqueSetFilter<E> {
+public class UniqueClassCollectionFilter<E> extends UniqueCollectionFilter<E> {
 
     @Override
     public Object getIdentifier(E value) {

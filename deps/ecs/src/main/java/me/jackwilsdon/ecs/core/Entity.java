@@ -1,16 +1,16 @@
 package me.jackwilsdon.ecs.core;
 
-import me.jackwilsdon.ecs.util.FilteredSet;
-import me.jackwilsdon.ecs.util.filter.UniqueClassSetFilter;
+import me.jackwilsdon.ecs.util.FilteredCollection;
+import me.jackwilsdon.ecs.util.filter.UniqueClassCollectionFilter;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 public final class Entity {
     private UUID identifier = UUID.randomUUID();
-    private Set<Component> components =
-            new FilteredSet<>(new UniqueClassSetFilter<Component>(), new HashSet<Component>());
+    private Collection<Component> components =
+            new FilteredCollection<>(new UniqueClassCollectionFilter<Component>(), new HashSet<Component>());
 
     public UUID getIdentifier() {
         return identifier;
