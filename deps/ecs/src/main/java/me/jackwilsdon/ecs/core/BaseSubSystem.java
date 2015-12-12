@@ -18,6 +18,10 @@ public abstract class BaseSubSystem implements SubSystem {
 
     @Override
     public void onRemovedFromEngine(Engine engine) {
+        if (getEngine() != null) {
+            throw new UnsupportedOperationException("subsystem removed from wrong engine");
+        }
+
         this.engine = null;
     }
 }
