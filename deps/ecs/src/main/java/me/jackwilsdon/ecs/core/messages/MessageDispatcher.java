@@ -1,12 +1,10 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.messages;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class MessageDispatcher {
     private List<Object> listeners = new ArrayList<>();

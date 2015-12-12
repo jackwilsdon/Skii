@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.component;
 
 import java.util.ArrayList;
 import java.util.HashMap;

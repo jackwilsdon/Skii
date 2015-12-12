@@ -1,4 +1,6 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.component;
+
+import me.jackwilsdon.ecs.core.EntityManager;
 
 public class EntityComponentManager extends ComponentManager {
     private EntityManager entityManager;

@@ -1,4 +1,6 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.subsystem;
+
+import me.jackwilsdon.ecs.core.Engine;
 
 public class EngineSubSystemManager extends SubSystemManager {
     private Engine engine;

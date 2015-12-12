@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.messages;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

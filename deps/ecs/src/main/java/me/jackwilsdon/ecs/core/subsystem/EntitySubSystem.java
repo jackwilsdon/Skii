@@ -1,4 +1,4 @@
-package me.jackwilsdon.ecs.core;
+package me.jackwilsdon.ecs.core.subsystem;
 
 public abstract class EntitySubSystem extends SubSystem {
 
