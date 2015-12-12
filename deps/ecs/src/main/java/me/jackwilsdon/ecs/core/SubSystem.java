@@ -1,11 +1,29 @@
 package me.jackwilsdon.ecs.core;
 
-public interface SubSystem {
-    void onAddedToEngine(Engine engine);
+public abstract class SubSystem {
+    private Engine engine;
 
-    void onRemovedFromEngine(Engine engine);
+    public final Engine getEngine() {
+        return engine;
+    }
 
-    void onTick(float deltaTime);
+    public final void onAddedToEngine(Engine engine) {
+        if (getEngine() != null) {
+            throw new UnsupportedOperationException("subsystem already added to an engine");
+        }
 
-    void onFrame();
+        this.engine = engine;
+    }
+
+    public final void onRemovedFromEngine(Engine engine) {
+        if (getEngine() != null) {
+            throw new UnsupportedOperationException("subsystem removed from wrong engine");
+        }
+
+        this.engine = null;
+    }
+
+    public abstract void onTick(float deltaTime);
+
+    public abstract gvoid onFrame();
 }

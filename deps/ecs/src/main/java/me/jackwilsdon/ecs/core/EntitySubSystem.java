@@ -1,6 +1,6 @@
 package me.jackwilsdon.ecs.core;
 
-public abstract class EntitySubSystem extends BaseSubSystem {
+public abstract class EntitySubSystem extends SubSystem {
 
     @Override
     public void onTick(float deltaTime) {
