@@ -9,7 +9,7 @@ public abstract class BaseSubSystem implements SubSystem {
 
     @Override
     public void onAddedToEngine(Engine engine) {
-        if (this.engine != null) {
+        if (getEngine() != null) {
             throw new UnsupportedOperationException("subsystem already added to an engine");
         }
 
