@@ -12,6 +12,8 @@ public abstract class SubSystem {
             throw new UnsupportedOperationException("subsystem already added to an engine");
         }
 
+        engine.getMessageDispatcher().addListener(this);
+
         this.engine = engine;
     }
 
@@ -19,6 +21,8 @@ public abstract class SubSystem {
         if (getEngine() != null) {
             throw new UnsupportedOperationException("subsystem removed from wrong engine");
         }
+
+        engine.getMessageDispatcher().removeListener(this);
 
         this.engine = null;
     }

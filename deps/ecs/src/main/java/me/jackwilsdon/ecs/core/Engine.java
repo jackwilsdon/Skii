@@ -5,6 +5,7 @@ public class Engine {
     private ComponentManager componentManager = new EntityComponentManager(entityManager);
     private PropertyManager propertyManager = new PropertyManager();
     private SubSystemManager subSystemManager = new SubSystemManager();
+    private MessageDispatcher messageDispatcher = new MessageDispatcher();
 
     public EntityManager getEntityManager() {
         return entityManager;
@@ -20,5 +21,9 @@ public class Engine {
 
     public SubSystemManager getSubSystemManager() {
         return subSystemManager;
+    }
+
+    public MessageDispatcher getMessageDispatcher() {
+        return messageDispatcher;
     }
 }
