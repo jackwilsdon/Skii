@@ -3,11 +3,13 @@ package me.jackwilsdon.ecs.core;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MessageDispatcher {
-    private Set<Object> listeners = new HashSet<>();
+    private List<Object> listeners = new ArrayList<>();
 
     private boolean isValidListener(Method method, Class<? extends Message> messageClass) {
         MessageListener listener = method.getAnnotation(MessageListener.class);
@@ -29,7 +31,7 @@ public class MessageDispatcher {
     }
 
     private Method[] getListenerMethods(Object listener, Class<? extends Message> messageClass) {
-        Set<Method> methods = new HashSet<>();
+        List<Method> methods = new ArrayList<>();
 
         for (Method method : listener.getClass().getMethods()) {
             if (isValidListener(method, messageClass)) {
