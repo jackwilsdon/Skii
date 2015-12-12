@@ -8,7 +8,7 @@ public class PropertyManager {
     private List<Property> properties = new ArrayList<>();
 
     public boolean hasProperty(Class<? extends Property> propertyClass) {
-        for (Property property : properties) {
+        for (Property property : getProperties()) {
             if (property.getClass() == propertyClass) {
                 return true;
             }
@@ -26,7 +26,7 @@ public class PropertyManager {
     }
 
     public <T extends Property> T getProperty(Class<T> propertyClass) {
-        for (Property property : properties) {
+        for (Property property : getProperties()) {
             if (property.getClass() == propertyClass) {
                 return propertyClass.cast(property);
             }
