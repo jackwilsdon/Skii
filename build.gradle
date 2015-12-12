@@ -31,7 +31,7 @@ compileJava {
 
 task fatJar(type: Jar) {
     manifest {
-        attributes 'Main-Class': mainClassName
+        attributes 'Implementation-Version': version, 'Main-Class': mainClassName
     }
 
     baseName = project.name + '-all'
