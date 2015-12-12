@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'checkstyle'
 apply plugin: 'application'
 
-version = '0.0.1'
+version = '0.1.0'
 mainClassName = 'me.jackwilsdon.skii.Main';
 
 project.extensions.lwjglVersion = '2.9.3'
