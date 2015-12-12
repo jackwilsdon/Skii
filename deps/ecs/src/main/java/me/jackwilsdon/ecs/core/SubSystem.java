@@ -25,5 +25,5 @@ public abstract class SubSystem {
 
     public abstract void onTick(float deltaTime);
 
-    public abstract gvoid onFrame();
+    public abstract void onFrame();
 }
