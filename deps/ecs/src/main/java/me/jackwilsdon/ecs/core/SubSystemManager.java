@@ -37,7 +37,6 @@ public class SubSystemManager {
 
     public boolean addSubSystem(SubSystem subSystem) {
         return !hasSubSystem(subSystem) && subSystems.add(subSystem);
-
     }
 
     public boolean removeSubSystem(Class<? extends SubSystem> subSystemClass) {
