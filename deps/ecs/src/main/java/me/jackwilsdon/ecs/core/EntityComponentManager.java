@@ -7,39 +7,46 @@ public class EntityComponentManager extends ComponentManager {
         this.entityManager = entityManager;
     }
 
+    @Override
     public boolean hasComponent(int entityId, Class<? extends Component> componentClass) {
-        return entityManager.hasEntity(entityId) && hasComponent(entityId, componentClass);
+        return entityManager.hasEntity(entityId) && super.hasComponent(entityId, componentClass);
     }
 
+    @Override
     public boolean hasComponent(int entityId, Component component) {
-        return entityManager.hasEntity(entityId) && hasComponent(entityId, component);
+        return entityManager.hasEntity(entityId) && super.hasComponent(entityId, component);
     }
 
+    @Override
     public Component[] getComponents(int entityId) {
         if (!entityManager.hasEntity(entityId)) {
             return null;
         }
 
-        return getComponents(entityId);
+        return super.getComponents(entityId);
     }
 
+    @Override
     public <T extends Component> T getComponent(int entityId, Class<T> componentClass) {
         if (!entityManager.hasEntity(entityId)) {
             return null;
         }
 
-        return getComponent(entityId, componentClass);
+        return super.getComponent(entityId, componentClass);
     }
 
+    @Override
     public boolean addComponent(int entityId, Component component) {
-        return entityManager.hasEntity(entityId) && addComponent(entityId, component);
+        return entityManager.hasEntity(entityId) && super.addComponent(entityId, component);
     }
 
+    @Override
     public boolean removeComponent(int entityId, Class<? extends Component> componentClass) {
-        return entityManager.hasEntity(entityId) && removeComponent(entityId, componentClass);
+        return entityManager.hasEntity(entityId) && super.removeComponent(entityId, componentClass);
     }
 
+    @Override
     public boolean removeComponent(int entityId, Component component) {
-        return entityManager.hasEntity(entityId) && removeComponent(entityId, component);
+        return entityManager.hasEntity(entityId) && super.removeComponent(entityId, component);
     }
 }
