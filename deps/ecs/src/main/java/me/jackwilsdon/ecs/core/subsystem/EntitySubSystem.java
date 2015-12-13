@@ -3,14 +3,18 @@ package me.jackwilsdon.ecs.core.subsystem;
 public abstract class EntitySubSystem extends SubSystem {
 
     @Override
-    public void onTick(float deltaTime) {
+    public final void onTick(float deltaTime) {
+        super.onTick(deltaTime);
+
         for (int entityId : getEngine().getEntityManager().getEntities()) {
             onEntityTick(entityId, deltaTime);
         }
     }
 
     @Override
-    public void onFrame() {
+    public final void onFrame() {
+        super.onFrame();
+
         for (int entityId : getEngine().getEntityManager().getEntities()) {
             onEntityFrame(entityId);
         }
