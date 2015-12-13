@@ -9,7 +9,7 @@ public abstract class SubSystem {
         return engine;
     }
 
-    public final void onAddedToEngine(Engine engine) {
+    public void onAddedToEngine(Engine engine) {
         if (getEngine() != null) {
             throw new UnsupportedOperationException("subsystem already added to an engine");
         }
@@ -19,7 +19,7 @@ public abstract class SubSystem {
         this.engine = engine;
     }
 
-    public final void onRemovedFromEngine(Engine engine) {
+    public void onRemovedFromEngine(Engine engine) {
         if (getEngine() != null) {
             throw new UnsupportedOperationException("subsystem removed from wrong engine");
         }
