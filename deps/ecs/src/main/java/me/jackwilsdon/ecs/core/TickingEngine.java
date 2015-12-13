@@ -10,6 +10,8 @@ public class TickingEngine extends Engine implements TickListener, FrameListener
 
     public TickingEngine(int tickRate) {
         ticker = new Ticker(tickRate);
+
+        ticker.addTickListener(this);
     }
 
     @Override
