@@ -5,7 +5,7 @@ import me.jackwilsdon.ecs.core.Engine;
 public abstract class SubSystem {
     private Engine engine;
 
-    public final Engine getEngine() {
+    public Engine getEngine() {
         return engine;
     }
 
