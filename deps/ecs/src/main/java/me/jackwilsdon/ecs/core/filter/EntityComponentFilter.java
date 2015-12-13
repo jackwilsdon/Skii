@@ -19,7 +19,7 @@ public class EntityComponentFilter implements Filter<Integer,EngineFilterContext
 
     @Override
     public boolean accept(Integer value, EngineFilterContext context) {
-        ComponentManager componentManager = context.engine.getComponentManager();
+        ComponentManager componentManager = context.getEngine().getComponentManager();
 
         for (Class<? extends Component> componentClass : componentClasses) {
             if (!componentManager.hasComponent(value, componentClass)) {

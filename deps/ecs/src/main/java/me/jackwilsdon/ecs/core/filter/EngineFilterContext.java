@@ -4,7 +4,7 @@ import me.jackwilsdon.ecs.core.Engine;
 import me.jackwilsdon.ecs.util.filter.FilterContext;
 
 public class EngineFilterContext implements FilterContext {
-    public Engine engine;
+    private Engine engine;
 
     public EngineFilterContext(Engine engine) {
         this.engine = engine;
@@ -12,5 +12,13 @@ public class EngineFilterContext implements FilterContext {
 
     public EngineFilterContext() {
         this(null);
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Engine getEngine() {
+        return engine;
     }
 }

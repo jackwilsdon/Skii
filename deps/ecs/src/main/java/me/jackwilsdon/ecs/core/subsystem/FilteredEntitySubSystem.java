@@ -17,14 +17,14 @@ public abstract class FilteredEntitySubSystem extends EntitySubSystem {
     public void onAddedToEngine(Engine engine) {
         super.onAddedToEngine(engine);
 
-        filterContext.engine = engine;
+        filterContext.setEngine(engine);
     }
 
     @Override
     public void onRemovedFromEngine(Engine engine) {
         super.onRemovedFromEngine(engine);
 
-        filterContext.engine = null;
+        filterContext.setEngine(null);
     }
 
     @Override
