@@ -2,6 +2,10 @@ package me.jackwilsdon.ecs.core.subsystem;
 
 public abstract class EntitySubSystem extends SubSystem {
 
+    public EntitySubSystem(int priority) {
+        super(priority);
+    }
+
     @Override
     public final void onTick(float deltaTime) {
         super.onTick(deltaTime);

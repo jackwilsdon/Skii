@@ -3,7 +3,16 @@ package me.jackwilsdon.ecs.core.subsystem;
 import me.jackwilsdon.ecs.core.Engine;
 
 public abstract class SubSystem {
+    private int priority;
     private Engine engine;
+
+    public SubSystem(int priority) {
+        this.priority = priority;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
 
     public Engine getEngine() {
         return engine;

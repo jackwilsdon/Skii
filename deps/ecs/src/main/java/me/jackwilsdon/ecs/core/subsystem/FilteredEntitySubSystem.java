@@ -8,7 +8,9 @@ public abstract class FilteredEntitySubSystem extends EntitySubSystem {
     private Filter<Integer, EngineFilterContext> filter;
     private EngineFilterContext filterContext;
 
-    public FilteredEntitySubSystem(Filter<Integer, EngineFilterContext> filter) {
+    public FilteredEntitySubSystem(int priority, Filter<Integer, EngineFilterContext> filter) {
+        super(priority);
+
         this.filter = filter;
         filterContext = new EngineFilterContext();
     }
