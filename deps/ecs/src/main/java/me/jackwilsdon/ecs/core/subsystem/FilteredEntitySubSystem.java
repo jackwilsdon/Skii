@@ -31,8 +31,6 @@ public abstract class FilteredEntitySubSystem extends EntitySubSystem {
 
     @Override
     public final void onEntityTick(int entityId, float deltaTime) {
-        super.onEntityTick(entityId, deltaTime);
-
         if (filter.accept(entityId, filterContext)) {
             onFilteredEntityTick(entityId, deltaTime);
         }
@@ -40,18 +38,12 @@ public abstract class FilteredEntitySubSystem extends EntitySubSystem {
 
     @Override
     public final void onEntityFrame(int entityId) {
-        super.onEntityFrame(entityId);
-
         if (filter.accept(entityId, filterContext)) {
             onFilteredEntityFrame(entityId);
         }
     }
 
-    public void onFilteredEntityTick(int entityId, float deltaTime) {
+    public abstract void onFilteredEntityTick(int entityId, float deltaTime);
 
-    }
-
-    public void onFilteredEntityFrame(int entityId) {
-
-    }
+    public abstract void onFilteredEntityFrame(int entityId);
 }

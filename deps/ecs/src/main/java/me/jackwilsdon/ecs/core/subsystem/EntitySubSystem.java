@@ -8,8 +8,6 @@ public abstract class EntitySubSystem extends SubSystem {
 
     @Override
     public final void onTick(float deltaTime) {
-        super.onTick(deltaTime);
-
         for (int entityId : getEngine().getEntityManager().getEntities()) {
             onEntityTick(entityId, deltaTime);
         }
@@ -17,17 +15,12 @@ public abstract class EntitySubSystem extends SubSystem {
 
     @Override
     public final void onFrame() {
-        super.onFrame();
-
         for (int entityId : getEngine().getEntityManager().getEntities()) {
             onEntityFrame(entityId);
         }
     }
 
-    public void onEntityTick(int entityId, float deltaTime) {
+    public abstract void onEntityTick(int entityId, float deltaTime);
 
-    }
-
-    public void onEntityFrame(int entityId) {}
-
+    public abstract void onEntityFrame(int entityId);
 }
