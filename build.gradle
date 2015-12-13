@@ -12,7 +12,8 @@ repositories {
 }
 
 checkstyle {
-    configFile = new File(projectDir, 'checkstyle.xml')
+    configFile = new File(projectDir, "checkstyle.xml")
+    toolVersion = "6.13"
 }
 
 dependencies {

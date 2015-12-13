@@ -7,6 +7,7 @@ repositories {
 
 checkstyle {
     configFile = new File(projectDir, "checkstyle.xml")
+    toolVersion = "6.13"
 }
 
 compileJava {
