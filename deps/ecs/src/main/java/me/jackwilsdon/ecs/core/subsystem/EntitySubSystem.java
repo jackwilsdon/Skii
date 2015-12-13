@@ -16,7 +16,10 @@ public abstract class EntitySubSystem extends SubSystem {
         }
     }
 
-    public abstract void onEntityTick(int entityId, float deltaTime);
+    public void onEntityTick(int entityId, float deltaTime) {
 
-    public abstract void onEntityFrame(int entityId);
+    }
+
+    public void onEntityFrame(int entityId) {}
+
 }

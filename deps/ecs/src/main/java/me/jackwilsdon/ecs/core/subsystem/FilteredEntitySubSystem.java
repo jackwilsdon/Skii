@@ -41,7 +41,11 @@ public abstract class FilteredEntitySubSystem extends EntitySubSystem {
         }
     }
 
-    public abstract void onFilteredEntityTick(int entityId, float deltaTime);
+    public void onFilteredEntityTick(int entityId, float deltaTime) {
 
-    public abstract void onFilteredEntityFrame(int entityId);
+    }
+
+    public void onFilteredEntityFrame(int entityId) {
+
+    }
 }

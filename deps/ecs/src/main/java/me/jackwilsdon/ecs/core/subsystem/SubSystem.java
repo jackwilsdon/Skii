@@ -29,7 +29,11 @@ public abstract class SubSystem {
         this.engine = null;
     }
 
-    public abstract void onTick(float deltaTime);
+    public void onTick(float deltaTime) {
 
-    public abstract void onFrame();
+    }
+
+    public void onFrame() {
+
+    }
 }
