@@ -1,5 +1,5 @@
 package me.jackwilsdon.ecs.core.component;
 
-public interface Component {
-
+public interface Component<T extends Component> {
+    T copy();
 }
