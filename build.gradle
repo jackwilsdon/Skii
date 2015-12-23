@@ -1,0 +1,55 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+apply plugin: 'application'
+
+version = '0.1.0'
+mainClassName = 'me.jackwilsdon.skii.core.Main';
+
+project.extensions.lwjglVersion = '2.9.3'
+
+repositories {
+    mavenCentral()
+}
+
+checkstyle {
+    configFile = new File(projectDir, "checkstyle.xml")
+    toolVersion = "6.13"
+}
+
+dependencies {
+    compile project(':ecs')
+
+    compile "org.lwjgl.lwjgl:lwjgl:${lwjglVersion}"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-windows"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-linux"
+    compile "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}:natives-osx"
+}
+
+compileJava {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Version': version, 'Main-Class': mainClassName
+    }
+
+    baseName = project.name + '-all'
+
+    from {
+        configurations.compile.collect {
+            if (it.isDirectory()) {
+                return it;
+            } else {
+                return zipTree(it);
+            }
+        }
+    }
+
+    with jar
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradle.getGradleVersion()
+}

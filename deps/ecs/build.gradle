@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'checkstyle'
+
+repositories {
+    mavenCentral()
+}
+
+checkstyle {
+    configFile = new File(projectDir, "checkstyle.xml")
+    toolVersion = "6.13"
+}
+
+compileJava {
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+}
