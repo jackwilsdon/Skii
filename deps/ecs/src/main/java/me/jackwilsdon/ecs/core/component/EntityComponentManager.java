@@ -1,12 +1,13 @@
 package me.jackwilsdon.ecs.core.component;
 
+import me.jackwilsdon.ecs.core.Engine;
 import me.jackwilsdon.ecs.core.EntityManager;
 
 public class EntityComponentManager extends ComponentManager {
     private EntityManager entityManager;
 
-    public EntityComponentManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public EntityComponentManager(Engine engine) {
+        this.entityManager = engine.getEntityManager();
     }
 
     @Override

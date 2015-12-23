@@ -9,7 +9,7 @@ import me.jackwilsdon.ecs.core.subsystem.SubSystemManager;
 
 public class Engine {
     private EntityManager entityManager = new EntityManager();
-    private ComponentManager componentManager = new EntityComponentManager(entityManager);
+    private ComponentManager componentManager = new EntityComponentManager(this);
     private PropertyManager propertyManager = new PropertyManager();
     private SubSystemManager subSystemManager = new EngineSubSystemManager(this);
     private MessageDispatcher messageDispatcher = new MessageDispatcher();
