@@ -16,7 +16,13 @@ public abstract class EntitySubSystem extends SubSystem {
     }
 
     private boolean shouldExecute(Entity entity) {
-        return entity.hasComponents(componentClasses);
+        for (Class<? extends Component> componentClass : componentClasses) {
+            if (!entity.hasComponent(componentClass)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     @Override

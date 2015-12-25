@@ -33,35 +33,10 @@ public final class Entity {
         return getEngine().getComponentManager().hasComponent(getId(), componentClass);
     }
 
-    @SafeVarargs
-    public final boolean hasComponents(Class<? extends Component>... componentClasses) {
-        checkValidity();
-
-        for (Class<? extends Component> componentClass : componentClasses) {
-            if (!hasComponent(componentClass)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public boolean hasComponent(Component component) {
         checkValidity();
 
         return hasComponent(component.getClass());
-    }
-
-    public boolean hasComponents(Component... components) {
-        checkValidity();
-
-        for (Component component : components) {
-            if (!hasComponent(component)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     public Component[] getComponents() {
@@ -82,53 +57,16 @@ public final class Entity {
         return getEngine().getComponentManager().addComponent(getId(), component);
     }
 
-    public boolean addComponents(Component... components) {
-        checkValidity();
-
-        boolean changed = false;
-
-        for (Component component : components) {
-            changed = addComponent(component) || changed;
-        }
-
-        return changed;
-    }
-
     public boolean removeComponent(Class<? extends Component> componentClass) {
         checkValidity();
 
         return getEngine().getComponentManager().removeComponent(getId(), componentClass);
     }
 
-    @SafeVarargs
-    public final boolean removeComponents(Class<? extends Component>... componentClasses) {
-        checkValidity();
-
-        boolean changed = false;
-
-        for (Class<? extends Component> componentClass : componentClasses) {
-            changed = removeComponent(componentClass) || changed;
-        }
-
-        return changed;
-    }
-
     public boolean removeComponent(Component component) {
         checkValidity();
 
         return removeComponent(component.getClass());
-    }
-
-    public boolean removeComponents(Component... components) {
-        checkValidity();
-
-        boolean changed = false;
-
-        for (Component component : components) {
-            changed = removeComponent(component) || changed;
-        }
-
-        return changed;
     }
 
     public boolean remove() {
