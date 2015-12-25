@@ -13,6 +13,11 @@ public class MovementSubSystem extends EntitySubSystem {
 
     @Override
     public void onEntityTick(Entity entity, float deltaTime) {
+        Position position = entity.getComponent(Position.class);
+        Velocity velocity = entity.getComponent(Velocity.class);
+
+        position.x += velocity.x * deltaTime;
+        position.y += velocity.y * deltaTime;
     }
 
     @Override
