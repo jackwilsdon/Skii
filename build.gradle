@@ -3,7 +3,7 @@ apply plugin: 'checkstyle'
 apply plugin: 'application'
 
 version = '0.1.0'
-mainClassName = 'me.jackwilsdon.skii.Skii';
+mainClassName = 'me.jackwilsdon.skii.SkiiGame';
 
 project.extensions.lwjglVersion = '2.9.3'
 
