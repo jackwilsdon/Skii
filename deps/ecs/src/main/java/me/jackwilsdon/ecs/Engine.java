@@ -1,10 +1,15 @@
 package me.jackwilsdon.ecs;
 
 import me.jackwilsdon.ecs.component.ComponentManager;
+import me.jackwilsdon.ecs.core.Component;
 import me.jackwilsdon.ecs.core.Entity;
+import me.jackwilsdon.ecs.core.SubSystem;
 import me.jackwilsdon.ecs.message.MessageDispatcher;
 import me.jackwilsdon.ecs.property.PropertyManager;
 import me.jackwilsdon.ecs.subsystem.SubSystemManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Engine {
     private EntityManager entityManager = new EntityManager(this);
@@ -43,15 +48,27 @@ public final class Engine {
         return new Entity(entityId, this);
     }
 
-    public Entity[] getEntities() {
-        int[] entityIds = getEntityManager().getEntities();
-        Entity[] entities = new Entity[entityIds.length];
+    @SafeVarargs
+    public final Entity[] getEntities(Class<? extends Component>... componentClasses) {
+        ComponentManager componentManager = getComponentManager();
+        List<Entity> entityList = new ArrayList<>();
 
-        for (int i = 0; i < entityIds.length; i++) {
-            entities[i] = new Entity(entityIds[i], this);
+        for (int entityId : getEntityManager().getEntities()) {
+            boolean validEntity = true;
+
+            for (Class<? extends Component> componentClass : componentClasses) {
+                if (!componentManager.hasComponent(entityId, componentClass)) {
+                    validEntity = false;
+                    break;
+                }
+            }
+
+            if (validEntity) {
+                entityList.add(new Entity(entityId, this));
+            }
         }
 
-        return entities;
+        return entityList.toArray(new Entity[entityList.size()]);
     }
 
     public boolean removeEntity(Entity entity) {
