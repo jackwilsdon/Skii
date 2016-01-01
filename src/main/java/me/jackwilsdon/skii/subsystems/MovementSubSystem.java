@@ -8,7 +8,7 @@ import me.jackwilsdon.skii.components.Velocity;
 public class MovementSubSystem extends EntitySubSystem {
 
     public MovementSubSystem() {
-        super(0, Position.class, Velocity.class);
+        super(200, Position.class, Velocity.class);
     }
 
     @Override

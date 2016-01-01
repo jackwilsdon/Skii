@@ -9,8 +9,11 @@ public class Paddle implements Component {
     public float width;
     public float height;
 
-    public Paddle(float width, float height) {
+    public int direction;
+
+    public Paddle(float width, float height, int direction) {
         this.width = width;
         this.height = height;
+        this.direction = direction;
     }
 }
