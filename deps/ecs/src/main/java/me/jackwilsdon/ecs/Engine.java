@@ -74,4 +74,16 @@ public final class Engine {
     public boolean removeEntity(Entity entity) {
         return entity != null && getEntityManager().removeEntity(entity.getId());
     }
+
+    public void onTick(float deltaTime) {
+        for (SubSystem subSystem : getSubSystemManager().getSubSystems()) {
+            subSystem.onTick(deltaTime);
+        }
+    }
+
+    public void onFrame() {
+        for (SubSystem subSystem : getSubSystemManager().getSubSystems()) {
+            subSystem.onFrame();
+        }
+    }
 }
